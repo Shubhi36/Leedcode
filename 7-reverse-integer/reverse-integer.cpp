@@ -24,6 +24,6 @@ public:
         if (digit > INT_MAX || digit < INT_MIN)
         return 0;
 
-        return (int)digit;
+        return digit;
     }
 };
