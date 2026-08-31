@@ -9,7 +9,7 @@ public:
             if(min>ranks[i])
             min = ranks[i];
         }
-        low = 1;
+        low = min;
         ans = high;
         high = min * cars * cars;
         while(low<=high)
