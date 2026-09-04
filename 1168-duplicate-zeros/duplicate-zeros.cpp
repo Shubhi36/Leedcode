@@ -6,7 +6,7 @@ public:
         i = 0;
         while(i<len)
         {
-            if(arr[i] == 0 && i != len-1)
+            if(arr[i] == 0)
             {
                 j = len-1;
                 k = i;
