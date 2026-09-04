@@ -13,7 +13,7 @@ public:
             while(min<=max)
             {
                 mid = (min+max)/2;
-                multi = 1LL*spells[i]*potions[mid];
+                multi = (long long int) spells[i]*potions[mid];
                 if(multi>=success)
                 {
                     ans = len-mid;
