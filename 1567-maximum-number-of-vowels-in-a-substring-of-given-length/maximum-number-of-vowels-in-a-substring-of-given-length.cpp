@@ -13,18 +13,17 @@ public:
             j++;
         }
         i = 0;
-        j = k - 1;
         maxcount = count;
         while(j < len)
         {
             if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u')
             count--;
 
-            i++;
-            j++;
-
             if(s[j] == 'a' || s[j] == 'e' || s[j] == 'i' || s[j] == 'o' || s[j] == 'u')
             count++;
+
+            i++;
+            j++;
 
             if(maxcount < count)
             maxcount = count;
