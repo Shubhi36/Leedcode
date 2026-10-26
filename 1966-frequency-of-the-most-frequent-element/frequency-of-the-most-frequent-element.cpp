@@ -26,7 +26,7 @@ public:
                 sum = ((long long)nums[i]*(mid-i+1)) - prefix[mid];
                 else
                 sum = ((long long)nums[i]*(mid-i+1)) - (prefix[mid]-prefix[i-1]);
-                
+
                 if(sum <= k)
                 {
                     freq = (mid-i+1);
