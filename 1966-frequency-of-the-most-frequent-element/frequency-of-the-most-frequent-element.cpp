@@ -13,7 +13,7 @@ public:
         {
             currentsum = (long) currentsum + nums[j];
             modifiedsum = (long) nums[j] * ((j - i) + 1);
-            while(i < len && abs(modifiedsum-currentsum) > k)
+            if (i < len && abs(modifiedsum-currentsum) > k)
             {
                 currentsum = (long) currentsum - nums[i];
                 i++;
