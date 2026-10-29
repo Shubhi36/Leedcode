@@ -1,43 +1,29 @@
 class Solution {
 public:
     int maxFrequency(vector<int>& nums, int k) {
-        int len,i,count,freq,max,low,high,mid;
-        long long int sum;
+        int len,i,j,currentlen,maxlen;
+        long int currentsum,modifiedsum;
         len = nums.size();
-        sort(nums.begin(), nums.end(), greater<int>());
-        vector <long long int> prefix;
-        sum = 0;
-        for(i=0;i<len;i++)
+        i = 0;
+        j = 0;
+        currentsum = 0;
+        maxlen = 0;
+        sort(nums.begin(),nums.end());
+        while(j<len)
         {
-            sum = sum + nums[i];
-            prefix.push_back(sum);
-        }
-        max = 0;
-        for(i=0;i<len;i++)
-        {
-            low = i;
-            high = len-1;
-            freq = 1;
-            while(low<=high)
+            currentsum = (long) currentsum + nums[j];
+            modifiedsum = (long) nums[j] * ((j - i) + 1);
+            while(i < len && abs(modifiedsum-currentsum) > k)
             {
-                mid = (low+high)/2;
-                
-                if(i == 0)
-                sum = ((long long)nums[i]*(mid-i+1)) - prefix[mid];
-                else
-                sum = ((long long)nums[i]*(mid-i+1)) - (prefix[mid]-prefix[i-1]);
-
-                if(sum <= k)
-                {
-                    freq = (mid-i+1);
-                    low = mid+1;
-                }
-                else
-                high = mid - 1;
+                currentsum = (long) currentsum - nums[i];
+                i++;
+                modifiedsum = (long) nums[j] * ((j - i) + 1);
             }
-            if(freq>max)
-            max = freq;
+            currentlen = (j-i) + 1;
+            if(maxlen<currentlen)
+            maxlen = currentlen;
+            j++;
         }
-        return max;
+        return maxlen;
     }
 };
